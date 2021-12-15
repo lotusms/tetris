@@ -1,0 +1,50 @@
+<div class="row justify-content-md-center">
+  <div class="col-md-4">
+    <canvas #board class="grid"></canvas>
+  </div>
+  <div class="col-md-4">
+    <div class="card-group">
+      <div class="card">
+        <div class="card-body">
+          <h1>{{ points }}</h1>
+          <h5 class="card-title">Score</h5>          
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h1>{{ lines }}</h1>
+          <h5 class="card-title">Lines</h5>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h1>{{ level }}</h1>
+          <h5 class="card-title">Level</h5>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>
+        <label>High Score:</label> {{ highScore }}
+      </div>
+      <div class="next-piece">
+        <label>Next Piece:</label> 
+        <canvas #next class="next"></canvas>
+      </div>          
+    </div>
+    <div class="btn-group">
+      <button
+        (click)="play()"
+        class="btn btn-success"
+        *ngIf="!gameStarted">Play</button>
+      <button
+        (click)="gameOver()"
+        class="btn btn-danger"
+        *ngIf="gameStarted">Reset</button>
+      <button
+        (click)="pause()"
+        class="btn btn-dark"
+        [class.button-disabled]="!gameStarted">Pause</button>
+    </div>
+  </div>
+</div>
